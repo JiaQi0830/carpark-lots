@@ -3,7 +3,6 @@ export default {
   name: "Carpark",
   data () {
     return {
-      carpark: null,
       smallMax: null,
       smallMaxItem: null,
       smallMin: null,
@@ -37,13 +36,13 @@ export default {
     let response = await this.getCarpark();
     let carparkData = response.data.items[0].carpark_data
     this.smallMax = 0
-    this.smallMin = carparkData.length
+    this.smallMin = Number. MAX_VALUE
     this.mediumMax = 0
-    this.mediumMin = carparkData.length
+    this.mediumMin = Number. MAX_VALUE
     this.bigMax = 0
-    this.bigMin = carparkData.length
+    this.bigMin = Number. MAX_VALUE
     this.largeMax = 0
-    this.largeMin = carparkData.length
+    this.largeMin = Number. MAX_VALUE
 
     let mappedCarpark = carparkData.map((item) => {
       let totalLots = item.carpark_info.reduce((accumulator, object) => {
